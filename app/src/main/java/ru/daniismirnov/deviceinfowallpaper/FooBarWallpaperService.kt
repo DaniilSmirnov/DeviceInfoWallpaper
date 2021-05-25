@@ -66,7 +66,7 @@ class FooBarWallpaperService : WallpaperService() {
             try {
                 c = holder.lockCanvas()
                 c?.let {
-                    painter.draw(it)
+                    painter.draw(it, applicationContext)
 
                 }
             } finally {

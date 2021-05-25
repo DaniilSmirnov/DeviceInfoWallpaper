@@ -1,25 +1,31 @@
 package ru.daniismirnov.deviceinfowallpaper
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.content.Context.WIFI_SERVICE
 import android.content.res.Resources
 import android.graphics.*
+import android.net.wifi.WifiManager
 import android.os.Build
+import android.text.format.Formatter.formatIpAddress
 import android.util.DisplayMetrics
 
 
 class CoolPainter {
-    fun draw(canvas: Canvas) {
+    fun draw(canvas: Canvas, context: Context) {
         val paint = Paint()
         drawBackground(canvas)
 
         paint.color = Color.WHITE
         paint.textSize = getScreenSize().widthPixels.toFloat() / 20
-        var y = getScreenSize().heightPixels.toFloat() / 10
+        var y = (getScreenSize().heightPixels.toFloat() / 2) - paint.textSize * 5
         val x = 5F
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
             canvas.drawText("Serial number: " + getSerial(), x, y, paint)
             y += paint.textSize
         }
+        canvas.drawText("IP: " + getIP(context), x, y, paint)
+        y += paint.textSize
         canvas.drawText("Manufacturer: " + getManufacturer(), x, y, paint)
         y += paint.textSize
         canvas.drawText("Model: " + getModel(), x, y, paint)
@@ -70,4 +76,9 @@ fun getScreenSize(): DisplayMetrics {
 
 fun getAndroidVersion(): String {
     return Build.VERSION.RELEASE
+}
+
+fun getIP(context: Context): String {
+    val wm = context.applicationContext.getSystemService(WIFI_SERVICE) as WifiManager?
+    return formatIpAddress(wm!!.connectionInfo.ipAddress)
 }
