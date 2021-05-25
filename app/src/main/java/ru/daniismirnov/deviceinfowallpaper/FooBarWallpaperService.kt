@@ -1,4 +1,4 @@
-package ru.jollydroid.livewallpaperlab
+package ru.daniismirnov.deviceinfowallpaper
 
 import android.graphics.Canvas
 import android.os.Handler
@@ -15,13 +15,6 @@ class FooBarWallpaperService : WallpaperService() {
     inner class FooBarEngine : Engine() {
         val redrawHandler = RedrawHandler()
         val painter = CoolPainter()
-
-        // my interface
-        fun requestRedraw() {
-            // ...
-        }
-
-        // inherited interface
 
         override fun onCreate(surfaceHolder: SurfaceHolder?) {
             super.onCreate(surfaceHolder)

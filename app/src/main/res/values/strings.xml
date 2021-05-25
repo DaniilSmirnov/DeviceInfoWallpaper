@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">LiveWallpaperLab</string>
-    <string name="wallpaper_description">Foo Bar Wallpaper</string>
+    <string name="app_name">Live Device Info</string>
+    <string name="wallpaper_description">Device Info Wallpaper</string>
 </resources>
