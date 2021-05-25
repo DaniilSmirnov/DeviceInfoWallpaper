@@ -1,1 +1,5 @@
-![image](https://user-images.githubusercontent.com/8039921/119533401-78863880-bd8e-11eb-8d32-8fd1fbc13af4.png)
+#### ### # Живые обои с информацией о устройстве
+- Для установки требуется выдать пермишен
+`android.permission.READ_PHONE_STATE`
+- Вывод серийного номера не работает на версиях выше Q (10)
+![image](https://user-images.githubusercontent.com/8039921/119543051-e7688f00-bd98-11eb-8865-6a675d878e94.png)
